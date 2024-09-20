@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  background-color: #333232;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+#spin-animation {
+  margin: 0 auto;
+  height: 25vw;
+  width: 25vw;
+  border: 5px solid #dddddc28;
+  border-radius: 50%;
+  position: relative;
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(245, 202, 12);
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: -5%;
+  transform-origin: 0% 0%;
+}
+
+.stopwatch {
+  background-color: #737996;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.time {
+  font-size: 3rem;
+  margin-block: 20px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.controls {
+  margin-bottom: 20px;
+}
+#start {
+  background-color: rgb(48, 181, 53);
+}
+
+#stop {
+  background-color: rgb(244, 76, 54);
+}
+
+#reset {
+  background-color: rgba(0, 0, 0, 0.815);
+}
+#lap {
+  background-color: rgb(33, 150, 243);
+}
+button {
+  color: rgb(240, 239, 239);
+}
+
+#lap-list {
+  max-height: 100px;
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 0 5px;
+  margin: 0;
+}
+#lap-list li {
+  border-radius: 3px;
+  font-size: 1.2rem;
+  background-color: #d1cfcf65;
+  margin: 0;
+  padding: 0;
+  padding-block: 10px;
+  margin-bottom: 5px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  .circle {
+    width: 15px;
+    height: 15px;
+    top: -4%;
+  }
+}
