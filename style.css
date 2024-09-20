@@ -25,7 +25,7 @@ html {
 .circle {
   width: 10px;
   height: 10px;
-  background-color: rgb(245, 202, 12);
+  background-color: rgb(206, 170, 9);
   position: absolute;
   border-radius: 50%;
   left: 50%;
@@ -34,7 +34,7 @@ html {
 }
 
 .stopwatch {
-  background-color: #737996;
+  background-color: #565d7a;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -78,18 +78,21 @@ button {
 #lap-list {
   max-height: 100px;
   overflow-y: scroll;
+  scrollbar-width: thin;
   list-style-type: none;
   padding: 0 5px;
   margin: 0;
+  border: 2px solid rgba(238, 233, 233, 0.315);
+  border-radius: 5px;
 }
 #lap-list li {
   border-radius: 3px;
   font-size: 1.2rem;
-  background-color: #d1cfcf65;
+  background-color: #08080848;
   margin: 0;
   padding: 0;
   padding-block: 10px;
-  margin-bottom: 5px;
+  margin-block: 5px;
 }
 
 @keyframes spin {
