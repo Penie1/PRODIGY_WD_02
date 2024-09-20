@@ -10,7 +10,7 @@ const lapButton = document.getElementById("lap");
 const lapList = document.getElementById("lap-list");
 const spinAnimation = document.getElementById("spin-animation");
 
-function timeToString(time) {
+function timeToObj(time) {
   const diffInHrs = Math.floor(time / 3600000);
   const diffInMins = Math.floor((time % 3600000) / 60000);
   const diffInSecs = Math.floor((time % 60000) / 1000);
@@ -21,14 +21,14 @@ function timeToString(time) {
   const secs = diffInSecs.toString().padStart(2, "0");
   const ms = diffInMs.toString().padStart(3, "0");
 
-  return `${hrs}:${mins}:${secs}:${ms}`;
+  return { hrs, mins, secs, ms };
 }
 
 function start() {
   startTime = Date.now() - elapsedTime;
   interval = setInterval(function () {
     elapsedTime = Date.now() - startTime;
-    print(timeToString(elapsedTime));
+    print(timeToObj(elapsedTime));
     spinAnimation.style.animationPlayState = "running";
   }, 10);
 }
@@ -40,7 +40,12 @@ function stop() {
 
 function reset() {
   clearInterval(interval);
-  print("00:00:00:000");
+  print({
+    hrs: "00",
+    mins: "00",
+    secs: "00",
+    ms: "000",
+  });
   elapsedTime = 0;
 
   spinAnimation.style.animation = "none"; // Stop the animation immediately
@@ -52,12 +57,13 @@ function reset() {
   lapList.innerHTML = "";
 }
 
-function print(txt) {
-  display.innerHTML = txt;
+function print(time) {
+  display.innerHTML = `<span>${time.hrs}:${time.mins}:${time.secs}</span> <span class="miliseconds">${time.ms}</span>`;
 }
 
 function displayLapTimes() {
-  const lapTime = `<li>${timeToString(elapsedTime)}</li>`;
+  const time = timeToObj(elapsedTime);
+  const lapTime = `<li>${time.hrs}:${time.mins}:${time.secs}:${time.ms}</li>`;
   lapList.insertAdjacentHTML("afterbegin", lapTime);
 }
 
