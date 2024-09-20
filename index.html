@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="stopwatch">
+      <div id="spin-animation">
+        <span class="circle"></span>
+      </div>
+      <div class="time" id="display">00:00:00:000</div>
+      <div class="controls">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="lap">Lap</button>
+        <button id="reset">Reset</button>
+      </div>
+      <div id="lap-container">
+        <ul id="lap-list"></ul>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
